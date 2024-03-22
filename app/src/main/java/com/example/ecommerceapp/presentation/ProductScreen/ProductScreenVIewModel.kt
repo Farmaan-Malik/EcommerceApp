@@ -28,23 +28,22 @@ class ProductScreenVIewModel(
 
     private val _productState = mutableStateOf<List<ProductsResponseItem>>(listOf())
     var productState:State<List<ProductsResponseItem>> = _productState
-    private val _categoryProductState = mutableStateOf<List<CategoryProductResponseItem>>(listOf())
-    var categoryProductState:State<List<CategoryProductResponseItem>> = _categoryProductState
     private val _isLoading = mutableStateOf(true)
     var isLoading: State<Boolean> = _isLoading
     private val _isError = mutableStateOf(false)
     var isError : State<Boolean> = _isError
     private val _errorMessage = mutableStateOf("")
     var errorMessage : State<String> = _errorMessage
-    private var _buttonState = mutableStateOf(false)
-    var buttonState: State<Boolean> = _buttonState
+    private var _selectedCategory = mutableStateOf("")
+    var selectedCategory: State<String> = _selectedCategory
 
 
     init {
         getList()
     }
 
-     private fun getList(){
+      fun getList(){
+          _selectedCategory.value= "All"
         viewModelScope.launch {
             val response = repository.getProducts()
             if (response is Resource.Success && !response.data.isNullOrEmpty()){
@@ -60,16 +59,18 @@ class ProductScreenVIewModel(
         }
     }
      fun getCategoryList(categoryName : String){
+         _selectedCategory.value = categoryName
         viewModelScope.launch {
             val response = repository.getCategoryProducts(categoryName)
             if (response is Resource.Success && !response.data.isNullOrEmpty()){
                 Log.e("ProductScreenVmCat", response.data.toString())
-                _categoryProductState.value = response.data
+                _productState.value = response.data
+
 //                _isLoading.value = false
             }else{
-//                _isError.value = true
-//                _errorMessage.value = response.message.toString()
-//                _isLoading.value = false
+                _isError.value = true
+                _errorMessage.value = response.message.toString()
+                _isLoading.value = false
 //                Log.e("ProductScreenVm", response.message.orEmpty()?: "ProductScreenVM")
             }
         }

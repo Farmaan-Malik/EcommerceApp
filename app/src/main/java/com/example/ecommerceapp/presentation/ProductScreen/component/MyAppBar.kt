@@ -8,6 +8,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.runtime.Composable
@@ -30,7 +31,7 @@ fun MyAppBar() {
         backgroundColor = Color.White,
         actions = {
             Icon(
-                imageVector = Icons.Outlined.ShoppingCart,
+                imageVector = Icons.Outlined.FavoriteBorder,
                 contentDescription = null,
                 modifier = Modifier
                     .clickable { /*TODO*/ }

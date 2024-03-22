@@ -55,7 +55,7 @@ fun MyPagerH() {
     }
     LaunchedEffect(Unit) {
         while (true) {
-            delay(4000)
+            delay(5000)
             val nextPage = (state.currentPage + 1) % state.pageCount
             state.scrollToPage(nextPage)
         }
@@ -78,12 +78,14 @@ fun MyPagerH() {
             }
         }
         IconButton(
-            onClick = { val nextPage = state.currentPage + 1
-                      if (nextPage < images.size){
-                          scope.launch {
-                              state.scrollToPage(nextPage)
-                          }
-                      }}, modifier = Modifier
+            onClick = {
+                val nextPage = state.currentPage + 1
+                if (nextPage < images.size) {
+                    scope.launch {
+                        state.scrollToPage(nextPage)
+                    }
+                }
+            }, modifier = Modifier
                 .size(32.dp)
                 .align(Alignment.CenterStart)
                 .clip(CircleShape),
@@ -98,12 +100,14 @@ fun MyPagerH() {
             )
         }
         IconButton(
-            onClick = { val previousPage = state.currentPage - 1
-                if (previousPage < images.size){
+            onClick = {
+                val previousPage = state.currentPage - 1
+                if (previousPage < images.size) {
                     scope.launch {
                         state.scrollToPage(previousPage)
                     }
-                }}, modifier = Modifier
+                }
+            }, modifier = Modifier
                 .size(32.dp)
                 .align(Alignment.CenterEnd)
                 .clip(CircleShape),

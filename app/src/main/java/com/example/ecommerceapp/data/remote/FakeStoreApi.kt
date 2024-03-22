@@ -15,6 +15,6 @@ interface FakeStoreApi {
     @GET("products/category/{categoryName}")
     suspend fun getCategory(
         @Path ("categoryName") categoryName:String
-    ): CategoryProductResponse
+    ): ProductsResponse
 
 }

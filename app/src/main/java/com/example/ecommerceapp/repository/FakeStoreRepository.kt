@@ -20,7 +20,7 @@ class FakeStoreRepository(
         return Resource.Success(data = response)
 
     }
-    suspend fun getCategoryProducts(categoryName: String): Resource<CategoryProductResponse> {
+    suspend fun getCategoryProducts(categoryName: String): Resource<ProductsResponse> {
         val response = try {
             Api.getCategory(categoryName = categoryName )
         } catch (e: Exception) {

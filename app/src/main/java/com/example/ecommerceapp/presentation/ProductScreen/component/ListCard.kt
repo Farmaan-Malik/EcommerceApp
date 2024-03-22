@@ -32,9 +32,6 @@ import com.example.ecommerceapp.data.remote.responses.products.Rating
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ListCard(
-//     category: String,
-//     description: String,
-//     id: Int,
     image: String,
     price: Double,
     rating: Rating,
@@ -48,20 +45,24 @@ fun ListCard(
             .fillMaxWidth()
 //            .background(Color.Gray)
 //            .fillMaxHeight()
-            .clip(RoundedCornerShape(15))){
-            Image(
-                modifier = Modifier
-                    .padding(bottom = 36.dp)
+            .clip(RoundedCornerShape(15))
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(bottom = 36.dp)
 //                    .fillMaxWidth()
-                    .aspectRatio(1f),
-                contentScale = ContentScale.Fit,
-                painter = rememberAsyncImagePainter(image),
-                contentDescription = null
-            )
+                .aspectRatio(1f),
+            contentScale = ContentScale.Fit,
+            painter = rememberAsyncImagePainter(image),
+            contentDescription = null
+        )
 
-            Text(title,modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            Text(rating.rate.toString(),modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            Text("$ $price",modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-        }
+        Text(title, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+        Text(
+            rating.rate.toString(),
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center
+        )
+        Text("$ $price", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
     }
-//}
+}
