@@ -75,26 +75,26 @@ fun ProductScreen(
 
     Scaffold(
         topBar = { MyAppBar() },
-        bottomBar = { MyBottomBar()},
+        bottomBar = { MyBottomBar() },
         floatingActionButton = {
-        FloatingActionButton(shape = RectangleShape,
-            elevation = FloatingActionButtonDefaults.elevation(1.dp),
-            modifier = Modifier
-                .offset(y = 50.dp)
-                .shadow(20.dp)
-                .clip(RoundedCornerShape(33)),
-            containerColor = Color(
-                0xFFF55424
-            ),
-            onClick = { /*TODO*/ }) {
-            Icon(
-                imageVector = Icons.Outlined.ShoppingCart,
-                contentDescription = "",
-                tint = Color.White
-            )
-        }
+            FloatingActionButton(shape = RectangleShape,
+                elevation = FloatingActionButtonDefaults.elevation(1.dp),
+                modifier = Modifier
+                    .offset(y = 50.dp)
+                    .shadow(20.dp)
+                    .clip(RoundedCornerShape(33)),
+                containerColor = Color(
+                    0xFFF55424
+                ),
+                onClick = { /*TODO*/ }) {
+                Icon(
+                    imageVector = Icons.Outlined.ShoppingCart,
+                    contentDescription = "",
+                    tint = Color.White
+                )
+            }
         },
-        floatingActionButtonPosition = FabPosition.End ,
+        floatingActionButtonPosition = FabPosition.End,
         modifier = Modifier.background(Color.Green)
     ) { paddingValues ->
 
@@ -118,7 +118,7 @@ fun ProductScreen(
             }
 
             !isLoading && ProductItems.isNotEmpty() -> {
-                Column(modifier = Modifier.fillMaxSize()){
+                Column(modifier = Modifier.fillMaxSize()) {
                     LazyVerticalStaggeredGrid(
                         columns = StaggeredGridCells.Fixed(2),
                         modifier = Modifier.padding(top = paddingValues.calculateTopPadding())
@@ -158,11 +158,6 @@ fun ProductScreen(
                             )
                         }
                     }
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(70.dp)
-                        .zIndex(3f)
-                        .border(2.dp, Color.Black)){}
                 }
             }
         }

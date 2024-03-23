@@ -13,6 +13,7 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
@@ -27,7 +28,9 @@ fun MyAppBar() {
     },
         modifier = Modifier
             .fillMaxWidth()
-            .height(60.dp),
+            .height(60.dp)
+            .shadow(10.dp, spotColor = Color.Black)
+        , elevation = 100.dp,
         backgroundColor = Color.White,
         actions = {
             Icon(
