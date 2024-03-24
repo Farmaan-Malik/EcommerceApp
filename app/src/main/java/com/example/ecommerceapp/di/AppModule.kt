@@ -1,6 +1,7 @@
 package com.example.ecommerceapp.di
 
 import com.example.ecommerceapp.data.remote.FakeStoreApi
+import com.example.ecommerceapp.presentation.ProductDetails.ProductDetailsViewModel
 import com.example.ecommerceapp.presentation.ProductScreen.ProductScreenVIewModel
 import com.example.ecommerceapp.repository.FakeStoreRepository
 import com.example.ecommerceapp.utils.Constants.BASEURL
@@ -20,7 +21,9 @@ val appModule = module {
 
     viewModel<ProductScreenVIewModel>{
         ProductScreenVIewModel(get())
-
+    }
+    viewModel<ProductDetailsViewModel>{
+        ProductDetailsViewModel(get())
     }
 
 }

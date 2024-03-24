@@ -36,6 +36,7 @@ class ProductScreenVIewModel(
     var errorMessage : State<String> = _errorMessage
     private var _selectedCategory = mutableStateOf("")
     var selectedCategory: State<String> = _selectedCategory
+    lateinit var wishList: List<ProductsResponseItem>
 
 
     init {
@@ -65,16 +66,12 @@ class ProductScreenVIewModel(
             if (response is Resource.Success && !response.data.isNullOrEmpty()){
                 Log.e("ProductScreenVmCat", response.data.toString())
                 _productState.value = response.data
-
-//                _isLoading.value = false
             }else{
                 _isError.value = true
                 _errorMessage.value = response.message.toString()
                 _isLoading.value = false
-//                Log.e("ProductScreenVm", response.message.orEmpty()?: "ProductScreenVM")
             }
         }
     }
-
 }
 

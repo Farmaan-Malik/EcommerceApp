@@ -89,7 +89,7 @@ fun MyPagerH() {
                 .size(32.dp)
                 .align(Alignment.CenterStart)
                 .clip(CircleShape),
-            colors = IconButtonDefaults.iconButtonColors(containerColor = Color(0x9C777575))
+            colors = IconButtonDefaults.iconButtonColors(containerColor = Color(0x1B625B71))
 
         ) {
             Icon(
@@ -111,7 +111,7 @@ fun MyPagerH() {
                 .size(32.dp)
                 .align(Alignment.CenterEnd)
                 .clip(CircleShape),
-            colors = IconButtonDefaults.iconButtonColors(containerColor = Color(0x9C777575))
+            colors = IconButtonDefaults.iconButtonColors(containerColor = Color(0x1B625B71))
         ) {
             Icon(
                 imageVector = Icons.Filled.KeyboardArrowRight,

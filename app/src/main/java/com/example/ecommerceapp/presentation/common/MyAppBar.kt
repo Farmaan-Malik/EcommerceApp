@@ -1,4 +1,4 @@
-package com.example.ecommerceapp.presentation.ProductScreen.component
+package com.example.ecommerceapp.presentation.common
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,6 +8,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.ShoppingCart
@@ -34,14 +35,11 @@ fun MyAppBar() {
         backgroundColor = Color.White,
         actions = {
             Icon(
-                imageVector = Icons.Outlined.FavoriteBorder,
+                imageVector = Icons.Filled.Person,
                 contentDescription = null,
                 modifier = Modifier
                     .clickable { /*TODO*/ }
                     .padding(end = 15.dp))
-            Icon(imageVector = Icons.Outlined.Person, contentDescription = null, modifier = Modifier
-                .clickable { /*TODO*/ }
-                .padding(end = 15.dp, start = 5.dp))
         })
 
 }

@@ -11,9 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.ecommerceapp.presentation.ProductDetails.ProductDetailScreen
 import com.example.ecommerceapp.presentation.ProductScreen.ProductScreen
 import com.example.ecommerceapp.presentation.ui.theme.EcommerceAppTheme
 
@@ -30,9 +33,14 @@ class MainActivity : ComponentActivity() {
 //
 //                }
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "ProductScreen" ){
-                    composable(route = "ProductScreen"){
+                NavHost(navController = navController, startDestination = "Home" ){
+                    composable(route = "Home"){
                         ProductScreen(navController = navController)
+                    }
+                    composable("DetailScreen/{id}", arguments = listOf(navArgument("id"){
+                        type = NavType.IntType
+                    })){
+                        ProductDetailScreen(id = it.arguments?.getInt("id") ?: 0, navController = navController)
                     }
                 }
             }

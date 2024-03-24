@@ -3,7 +3,9 @@ package com.example.ecommerceapp.repository
 import android.util.Log
 import com.example.ecommerceapp.data.remote.FakeStoreApi
 import com.example.ecommerceapp.data.remote.responses.products.ProductsResponse
+import com.example.ecommerceapp.data.remote.responses.products.ProductsResponseItem
 import com.example.ecommerceapp.data.remote.responses.products.categoryProducts.CategoryProductResponse
+import com.example.ecommerceapp.data.remote.responses.products.categoryProducts.CategoryProductResponseItem
 import com.example.ecommerceapp.utils.Resource
 
 class FakeStoreRepository(
@@ -28,6 +30,18 @@ class FakeStoreRepository(
             return Resource.Error(message = e.localizedMessage ?: "Error in repository")
         }
         Log.e("RepositoryGCP", "$response")
+        return Resource.Success(data = response)
+    }
+
+    suspend fun getItem(id : Int): Resource<ProductsResponseItem>{
+        val response = try {
+            Api.getItem(id)
+
+        } catch (e: Exception){
+            Log.e("werqw", "error")
+            return Resource.Error(e.localizedMessage ?: "Error in Repository")
+        }
+        Log.e("qwe", "${response}" )
         return Resource.Success(data = response)
     }
 }
